@@ -13,7 +13,8 @@ so this project will facilitate this process and provide the users with a lot of
     a. able to be executed in folders with more than two layers of subfolders
     b. compatible on all devices (Mac, Windows, Linux)
 
-4. 
+4. Add all of the tags of individual files in a folder to the folder itself.
+5.
 
 ### Week One: 
 1.  [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java)
