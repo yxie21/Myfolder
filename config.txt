@@ -1,0 +1,2 @@
+rootpath=/Users/yuxinxie/Documents/folder
+suffix=.txt
