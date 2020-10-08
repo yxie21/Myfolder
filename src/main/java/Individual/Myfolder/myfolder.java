@@ -1,5 +1,3 @@
-package Individual.Myfolder;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,28 +9,29 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class myfolder {
+public class MyFolder {
 
 	public static void main(String args[]) throws IOException {
-		BufferedReader f = new BufferedReader(new FileReader("config.txt"));
+		String workingDir = System.getProperty("user.dir");
+		String configPath = workingDir + File.separator + "config.txt"; // using relative path
+		BufferedReader config = new BufferedReader(new FileReader(configPath));
 
 		Map<String, String> map = new HashMap<>();
-		for (int i = 0; i < 2; i++) {
 
-			StringTokenizer st = new StringTokenizer(f.readLine(), "=");
-			map.put(st.nextToken(), st.nextToken());
+
+		while(true) {
+            String entry = config.readLine();
+            if(entry == null || entry.trim().equals("")) {
+            	break;
+            }
+		StringTokenizer st = new StringTokenizer(entry, "=");
+		map.put(st.nextToken(), st.nextToken());
 
 		}
-		Set<String> keySet = map.keySet();
-		ArrayList<String> a = new ArrayList<String>(keySet);
-		Collections.sort(a);
-		String rootpath = a.get(0);
-		String suffix = a.get(1);
-		System.out.println(rootpath);
-		System.out.println(suffix);
-
-		String folderPath = map.get(rootpath);
-		System.out.println(folderPath);
+		config.close();
+		String folderPath = map.get("rootpath");
+		String suffix = map.get("suffix");
+		
 		File[] list = new File(folderPath).listFiles();
 
 		for (File folders : list) {
@@ -42,8 +41,8 @@ public class myfolder {
 					if (subfolder.isDirectory()) {
 						folderCount++;
 						for (File source : subfolder.listFiles()) {
-							if (source.getName().endsWith(map.get(suffix))) {
-								source.renameTo(new File(source.getParentFile().getParent() + "\\" + source.getName()));
+							if (source.getName().endsWith(suffix)) {
+								source.renameTo(new File(source.getParentFile().getParent() + File.separator + source.getName()));
 
 							}
 						}
