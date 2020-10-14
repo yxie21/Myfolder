@@ -5,14 +5,23 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.GregorianCalendar;
 
 public class Report {
 
 	public void printreport(File[] list) {
 		PrintWriter pw = null;
 		try {
-
-			pw = new PrintWriter(new BufferedWriter(new FileWriter("report.out")));
+			GregorianCalendar calender = new GregorianCalendar();
+			
+			String name= new String (calender.get(GregorianCalendar.YEAR) + "_" +
+		       calender.get(GregorianCalendar.MONTH) + "_" +
+		       calender.get(GregorianCalendar.DATE) + "_" +
+		       calender.get(GregorianCalendar.HOUR)  + "" +
+		       calender.get(GregorianCalendar.MINUTE)  + "" +
+		       calender.get(GregorianCalendar.SECOND));
+		 
+			pw = new PrintWriter(new BufferedWriter(new FileWriter(name+ ".out")));
 
 			for (File folders : list) {
 				if(!folders.isDirectory()) {
