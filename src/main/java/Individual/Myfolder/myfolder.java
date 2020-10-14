@@ -34,6 +34,9 @@ public class MyFolder {
 		
 		File[] list = new File(folderPath).listFiles();
 
+		Report report = new Report();
+        report.printreport(list);
+
 		for (File folders : list) {
 			if (folders.isDirectory()) {
 				int folderCount = 0;
