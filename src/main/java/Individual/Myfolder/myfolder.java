@@ -35,7 +35,10 @@ public class MyFolder {
 		File[] list = new File(folderPath).listFiles();
 
 		Report report = new Report();
-        report.printreport(list);
+		report.printreport(list);
+		
+		Simplifier sim= new Simplifier();
+		sim.simplify (folderPath);
 
 		for (File folders : list) {
 			if (folders.isDirectory()) {
