@@ -9,11 +9,13 @@ We usually encounter a lot of unncessary troubles when dealing with folders with
 
 2. Generate reports of the original folder and the modified folder for users to check if there is any error in the process of moving files around. 
 
+3. Simplify the path length. Sometimes, a file is under a chain of subfolders (ex. subfolder A-- subfolder B--- subfolder C--- file). Delete the unnecessary subfolders and shorten the pathlength to get the file. 
+
 ##### Functions to Develop 
 
-3. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
+4. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
 
-4. Generalize the [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java) to make it
+5. Generalize the [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java) to make it
     a. able to be executed in folders with more than two layers of subfolders
     b. compatible on all devices (Mac, Windows, Linux)
 
