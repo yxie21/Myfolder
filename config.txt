@@ -1,2 +1,2 @@
-rootpath=/Users/yuxinxie/Documents/folder
-suffix=.txt
+rootpath=/Users/yuxinxie/Desktop/trial
+grouptogether=yes
