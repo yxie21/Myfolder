@@ -19,39 +19,41 @@ public class myfolder {
 	public static void main(String args[]) throws IOException {
 		BufferedReader f = new BufferedReader(new FileReader("config.txt"));
 
-		Map<String, String> map = new HashMap<>();
-		for (int i = 0; i < 2; i++) {
 
-			StringTokenizer st = new StringTokenizer(f.readLine(), "=");
+		String workingDir = System.getProperty("user.dir");
+		String configPath = workingDir + File.separator + "config.txt"; // using relative path
+		BufferedReader config = new BufferedReader(new FileReader(configPath));
+
+		Map<String, String> map = new HashMap<>();
+		while(true) {
+            String entry = config.readLine();
+            if(entry == null || entry.trim().equals("")) {
+            	break;
+            }
+			StringTokenizer st = new StringTokenizer(entry, "=");
 			map.put(st.nextToken(), st.nextToken());
 
 		}
-		Set<String> keySet = map.keySet();
-		ArrayList<String> a = new ArrayList<String>(keySet);
-		Collections.sort(a);
-		String rootpath = a.get(0);
-		String suffix = a.get(1);
-		System.out.println(rootpath);
-		System.out.println(suffix);
-
-		String folderPath = map.get(rootpath);
-		String suffixx= map.get(suffix);
-		System.out.println(folderPath);
-	
+		config.close();
+		String folderPath = map.get("rootpath");
+		String suffix = map.get("suffix");
+		String grouptogether= map.get("grouptogether");
+		
 		
 		File[] list = new File(folderPath).listFiles();
 		
        Report report = new Report();
        report.printreport(list);
 		
-		Simplifier sim= new Simplifier();
-		sim.simplify (folderPath);
+//		Simplifier sim= new Simplifier();
+//		sim.simplify (folderPath);
 		
 		imageconvertor con= new imageconvertor();
 		
-		System.out.println ("suffix"+suffixx);
+		
 		
 		Queue<File> queue = new LinkedList<File>();
+		
 		
 		for (File folders: list) {
 			queue.offer(folders);
@@ -66,14 +68,48 @@ public class myfolder {
 				}
 			}
 			else if (tmp.isFile()) {
+				System.out.println(tmp.getName());
 				if(tmp.getName().contains("png")) {
 					con.convert(tmp);
 					
 				}
-				if (tmp.getName().endsWith(suffixx)) {
-					System.out.println("print"+"  "+tmp.getParentFile().getParent()+File.separator+tmp.getName());
-					tmp.renameTo(new File(tmp.getParentFile().getParent()+File.separator+tmp.getName()));
+				
+				if(grouptogether.equals("no")) {
+					if(tmp.getName().startsWith(".")) {
+						continue;
+					}
+				tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
+				
 				}
+				else {
+					
+				
+				
+				if(tmp.getName().startsWith(".")) {
+					continue;
+				}
+				
+				int dotindex= tmp.getName().lastIndexOf('.');
+				if(dotindex<0) {
+					continue;
+				}
+				
+				String sub= tmp.getName().substring(dotindex+1, tmp.getName().length());
+				
+				
+				File a = new File(folderPath + File.separator+sub);
+			     if(!a.exists()) {
+			      a.mkdir();
+			     }
+			     tmp.renameTo(new File(a+File.separator+tmp.getName()));
+				}
+			     
+
+				
+//				if (tmp.getName().endsWith(suffixx)) {
+//					System.out.println("print"+"  "+tmp.getParentFile().getParent()+File.separator+tmp.getName());
+//					tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
+//				}
 			}
 		}
 
