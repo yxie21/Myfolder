@@ -16,8 +16,8 @@ We usually encounter a lot of unncessary troubles when dealing with folders with
 5. Convert all of the jpg files to png files automatically. (similar conversion can happen for other such changes)
 
 6. Users now have two options
-##### - if grouptogether=yes, then files of different suffixes would be grouped together and placed in newly created folders (using their suffix) under the main folder 
-##### - if grouptogether=no, then all of the indiviual files would simply be placed under the main folder. 
+##### - if grouptogether=yes, then files of the same suffix would be grouped together and placed in newly created folders (using their suffix) under the main folder (ex. all of the jpg files under subfolder jpg)
+##### - if grouptogether=no, then all of the indiviual files would simply be dragged out to the main folder. 
 
 
 ### Functions to Develop 
