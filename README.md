@@ -20,11 +20,9 @@ We usually encounter a lot of unncessary troubles when dealing with folders with
 ##### - if grouptogether=no, then all of the indiviual files would simply be placed under the main folder. 
 
 
-##### Functions to Develop 
+### Functions to Develop 
 
-4. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
+1. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
 
-5. Generalize the [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java) to make it
-    a. able to be executed in folders with more than two layers of subfolders
-    b. compatible on all devices (Mac, Windows, Linux)
+
 
