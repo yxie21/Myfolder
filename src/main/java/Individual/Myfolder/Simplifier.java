@@ -8,14 +8,14 @@ public class Simplifier {
 	public void simplify(String folderPath) {
 		
 		File[] list = new File(folderPath).listFiles();
-	
+		
 		ArrayList<String> filepaths = new ArrayList<String>();
 		
 		ArrayList<String> folderlocations = new ArrayList<String>();
 
 		for (File file : list) {
 
-			if (!file.getName().contains(".")) {
+			if (file.isDirectory()) {
 				String temp = folderPath + File.separator + file.getName();
 				folderlocations.add(temp);
 				simplify(temp);
@@ -35,10 +35,9 @@ public class Simplifier {
 
 		}
 		
-         int lastindex= folderPath.lastIndexOf(File.separator);
-   
-         
-		 String upperfolder= folderPath.substring(0, lastindex);
+		 int lastindex = folderPath.lastIndexOf(File.separator);
+		 
+		 String upperfolder = folderPath.substring(0, lastindex);
 		
 		 
 		 for (String b: filepaths) {
@@ -46,8 +45,8 @@ public class Simplifier {
 				 continue;
 			 }
 			 File file= new File(b);
-			 System.out.println(b+ "  "+ upperfolder+ File.separator+b );
-			 file.renameTo(new File (upperfolder+ File.separator+b ));
+			 System.out.println(b + "  " + upperfolder + File.separator + b);
+			 file.renameTo(new File (upperfolder + File.separator + b));
 		 }
 		 
 	}
