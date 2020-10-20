@@ -58,10 +58,10 @@ public class Simplifier {
 		 * Moves files out of subfolders
 		 */
 		for (String b : filepaths) {
+			File file = new File(b);
 			if (file.isHidden()) {
 				continue;
 			}
-			File file = new File(b);
 			System.out.println(b + "  " + upperfolder + File.separator + b);
 			file.renameTo(new File(upperfolder + File.separator + b));
 		}
