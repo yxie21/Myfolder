@@ -7,16 +7,18 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class Ziphelp {
 
-	
-	 
-	    public static void main(String[] args) {
+	    public void ziphelp(String folderPath) {
+	    	
+	    
 	      // 文件存放位置
 	        String zipPath = "/Users/yuxinxie/Desktop/special.zip";
 	        File zipFile = new File(zipPath);

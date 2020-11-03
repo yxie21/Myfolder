@@ -47,8 +47,8 @@ public class myfolder {
        Report report = new Report();
        report.printreport(list);
 		
-       Simplifier sim= new Simplifier();
-        sim.simplify(folderPath, false);
+//       Simplifier sim= new Simplifier();
+//        sim.simplify(folderPath, false);
 		
 		imageconvertor con= new imageconvertor();
 		
@@ -60,30 +60,46 @@ public class myfolder {
 		}
 		}
 		
+				
+		Queue<File> queue = new LinkedList<File>();
 		
-//		
-//		Queue<File> queue = new LinkedList<File>();
-//		
-//		
-//		for (File folders: list) {
-//			queue.offer(folders);
-//		}
-//
-//		
-//		while (queue.size()!=0) {
-//			File tmp= queue.poll();
-//			if (tmp.isDirectory()) {
-//				for (File subfolder : tmp.listFiles()) {
-//					queue.offer(subfolder);
-//				}
-//			}
-//			else if (tmp.isFile()) {
-//				System.out.println(tmp.getName());
+		
+		for (File folders: list) {
+			queue.offer(folders);
+		}
+
+		
+		while (queue.size()!=0) {
+			File tmp= queue.poll();
+			if (tmp.isDirectory()) {
+				
+				String temp = folderPath + File.separator + tmp.getName();
+			
+				
+				if(tmp.getName().contains("zip")) {
+					Ziphelp unzip= new Ziphelp();
+					unzip.ziphelp(temp);
+				}
+				for (File subfolder : tmp.listFiles()) {
+					queue.offer(subfolder);
+			}
+		}
+		else if (tmp.isFile()) {
+			if(tmp.getName().startsWith(".")) {
+				continue;
+			}
+			String temp2 = folderPath + File.separator + tmp.getName();
+			
+			       if(tmp.getName().contains("zip")) {
+			    	   Ziphelp unzip2= new Ziphelp();
+			    	   unzip2.ziphelp(temp2);
+			       }
+				
 //				if(tmp.getName().contains("png")) {
 //					con.convert(tmp);
 //					
 //				}
-//				
+				
 //				if(grouptogether.equals("no")) {
 //					if(tmp.getName().startsWith(".")) {
 //						continue;
@@ -113,19 +129,19 @@ public class myfolder {
 //			     }
 //			     tmp.renameTo(new File(a+File.separator+tmp.getName()));
 //				}
-//			     
+			     
 
 				
 //				if (tmp.getName().endsWith(suffixx)) {
 //					System.out.println("print"+"  "+tmp.getParentFile().getParent()+File.separator+tmp.getName());
 //					tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
 //				}
-//			}
-//}
+			}
+}
 
 		
 		
-		
+//		
 //		for (File folders : list) {
 //			if (folders.isDirectory()) {
 //				int folderCount = 0;
@@ -134,7 +150,7 @@ public class myfolder {
 //						folderCount++;
 //						for (File source : subfolder.listFiles()) {
 //							if (source.getName().endsWith(map.get(suffix))) {
-//								source.renameTo(new File(source.getParentFile().getParent() + File.separator + source.getName()));
+//							source.renameTo(new File(source.getParentFile().getParent() + File.separator + source.getName()));
 //
 //							}
 //						}
