@@ -45,12 +45,12 @@ public class myfolder {
 		
 		File[] list = new File(folderPath).listFiles();
 		
+		//Report report= new Report();
+		//report.printreport(list);
 		
-		Report report= new Report ();
-		report.printreport(list);
-		
-		
-    
+       Report report = new Report();
+       report.printreport(list);
+       
        mergefolder merged= new mergefolder();
        
        merged.merge(folderPath, "/Users/yuxinxie/Desktop/merge1", "/Users/yuxinxie/Desktop/merge2", "merged", newfolderornot);
@@ -69,81 +69,81 @@ public class myfolder {
 		}
 		
 				
-		// Queue<File> queue = new LinkedList<File>();
+		Queue<File> queue = new LinkedList<File>();
 		
 		
-		// for (File folders: list) {
-		// 	queue.offer(folders);
-		// }
+		for (File folders: list) {
+			queue.offer(folders);
+		}
 
 		
-		// while (queue.size()!=0) {
-		// 	File tmp= queue.poll();
-		// 	if (tmp.isDirectory()) {
+		while (queue.size()!=0) {
+			File tmp= queue.poll();
+			if (tmp.isDirectory()) {
 				
-		// 		String temp = folderPath + File.separator + tmp.getName();
+				String temp = folderPath + File.separator + tmp.getName();
 			
 				
-		// 		if(tmp.getName().contains("zip")) {
-		// 			Ziphelp unzip= new Ziphelp();
-		// 			unzip.ziphelp(temp);
-		// 		}
-		// 		for (File subfolder : tmp.listFiles()) {
-		// 			queue.offer(subfolder);
-		// 	}
-		// }
-		// else if (tmp.isFile()) {
-		// 	if(tmp.getName().startsWith(".")) {
-		// 		continue;
-		// 	}
-		// 	String temp2 = folderPath + File.separator + tmp.getName();
+				if(tmp.getName().contains("zip")) {
+					Ziphelp unzip= new Ziphelp();
+					unzip.ziphelp(temp);
+				}
+				for (File subfolder : tmp.listFiles()) {
+					queue.offer(subfolder);
+			}
+		}
+		else if (tmp.isFile()) {
+			if(tmp.getName().startsWith(".")) {
+				continue;
+			}
+			String temp2 = folderPath + File.separator + tmp.getName();
 			
-		// 	       if(tmp.getName().contains("zip")) {
-		// 	    	   Ziphelp unzip2= new Ziphelp();
-		// 	    	   unzip2.ziphelp(temp2);
-		// 	       }
+			       if(tmp.getName().contains("zip")) {
+			    	   Ziphelp unzip2= new Ziphelp();
+			    	   unzip2.ziphelp(temp2);
+			       }
 				
-				if(tmp.getName().contains("png")) {
-					con.convert(tmp);
-					
-				}
+//				if(tmp.getName().contains("png")) {
+//					con.convert(tmp);
+//					
+//				}
 				
-				if(grouptogether.equals("no")) {
-					if(tmp.getName().startsWith(".")) {
-						continue;
-					}
-				tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
-				
-				}
-				else {
-					
-				
-				
-				if(tmp.getName().startsWith(".")) {
-					continue;
-				}
-				
-				int dotindex= tmp.getName().lastIndexOf('.');
-				if(dotindex<0) {
-					continue;
-				}
-				
-				String sub= tmp.getName().substring(dotindex+1, tmp.getName().length());
-				
-				
-				File a = new File(folderPath + File.separator+sub);
-			     if(!a.exists()) {
-			      a.mkdir();
-			     }
-			     tmp.renameTo(new File(a+File.separator+tmp.getName()));
-				}
+//				if(grouptogether.equals("no")) {
+//					if(tmp.getName().startsWith(".")) {
+//						continue;
+//					}
+//				tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
+//				
+//				}
+//				else {
+//					
+//				
+//				
+//				if(tmp.getName().startsWith(".")) {
+//					continue;
+//				}
+//				
+//				int dotindex= tmp.getName().lastIndexOf('.');
+//				if(dotindex<0) {
+//					continue;
+//				}
+//				
+//				String sub= tmp.getName().substring(dotindex+1, tmp.getName().length());
+//				
+//				
+//				File a = new File(folderPath + File.separator+sub);
+//			     if(!a.exists()) {
+//			      a.mkdir();
+//			     }
+//			     tmp.renameTo(new File(a+File.separator+tmp.getName()));
+//				}
 			     
 
 				
-				if (tmp.getName().endsWith(suffixx)) {
-					System.out.println("print"+"  "+tmp.getParentFile().getParent()+File.separator+tmp.getName());
-					tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
-				}
+//				if (tmp.getName().endsWith(suffixx)) {
+//					System.out.println("print"+"  "+tmp.getParentFile().getParent()+File.separator+tmp.getName());
+//					tmp.renameTo(new File(folderPath+File.separator+tmp.getName()));
+//				}
 			}
 }
 
