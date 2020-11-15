@@ -40,12 +40,17 @@ public class myfolder {
 		String suffix = map.get("suffix");
 		String grouptogether= map.get("grouptogether");
 		String printtypeout= map.get("printfiletype");
+		String newfolderornot= map.get("createnewfolderformerge");
 		
 		
 		File[] list = new File(folderPath).listFiles();
 		
        Report report = new Report();
-       report.printreport(list);
+       report.printpdfreport(list);
+       
+       mergefolder merged= new mergefolder();
+       
+       merged.merge(folderPath, "/Users/yuxinxie/Desktop/merge1", "/Users/yuxinxie/Desktop/merge2", "merged", newfolderornot);
 		
 //       Simplifier sim= new Simplifier();
 //        sim.simplify(folderPath, false);
