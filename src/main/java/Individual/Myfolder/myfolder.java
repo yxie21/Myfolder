@@ -51,7 +51,7 @@ public class myfolder {
 		
 		
     
-      mergefolder merged= new mergefolder();
+       mergefolder merged= new mergefolder();
        
        merged.merge(folderPath, "/Users/yuxinxie/Desktop/merge1", "/Users/yuxinxie/Desktop/merge2", "merged", newfolderornot);
 		
