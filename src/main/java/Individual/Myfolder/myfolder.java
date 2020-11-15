@@ -45,9 +45,10 @@ public class myfolder {
 		
 		File[] list = new File(folderPath).listFiles();
 		
-
 		Report report= new Report ();
 		report.printpdfreport(list);
+		Report report2= new Report ();
+		report2.printpdfreport(list);
 		
     
        
