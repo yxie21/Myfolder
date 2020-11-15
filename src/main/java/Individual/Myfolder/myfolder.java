@@ -48,8 +48,11 @@ public class myfolder {
 		//Report report= new Report();
 		//report.printreport(list);
 		
-       Report report = new Report();
-       report.printpdfreport(list);
+	   Report report1 = new Report();
+	   report.printreport(list);
+	   Report report2= new Report();
+	   report.printpdfreport(list);
+         
        
        mergefolder merged= new mergefolder();
        
