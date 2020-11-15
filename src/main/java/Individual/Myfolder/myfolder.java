@@ -45,14 +45,13 @@ public class myfolder {
 		
 		File[] list = new File(folderPath).listFiles();
 		
+		
 		Report report= new Report ();
 		report.printpdfreport(list);
-		Report report2= new Report ();
-		report2.printpdfreport(list);
+		
 		
     
-       
-       mergefolder merged= new mergefolder();
+        mergefolder merged= new mergefolder();
        
        merged.merge(folderPath, "/Users/yuxinxie/Desktop/merge1", "/Users/yuxinxie/Desktop/merge2", "merged", newfolderornot);
 		
