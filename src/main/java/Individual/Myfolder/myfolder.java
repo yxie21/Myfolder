@@ -58,8 +58,8 @@ public class myfolder {
        
        merged.merge(folderPath, "/Users/yuxinxie/Desktop/merge1", "/Users/yuxinxie/Desktop/merge2", "merged", newfolderornot);
 		
-//       Simplifier sim= new Simplifier();
-//        sim.simplify(folderPath, false);
+       Simplifier sim= new Simplifier();
+        sim.simplify(folderPath, false);
 		
 		imageconvertor con= new imageconvertor();
 		
