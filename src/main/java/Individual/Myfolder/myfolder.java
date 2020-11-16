@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+// this has no function except for main
 public class MyFolder {
 
 	public static void main(String args[]) throws IOException {
