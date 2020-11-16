@@ -25,6 +25,10 @@ We usually encounter a lot of unncessary troubles when dealing with folders with
 ##### - if grouptogether=yes, then files of the same suffix would be grouped together and placed in newly created folders (using their suffix) under the main folder (ex. all of the jpg files under subfolder jpg)
 ##### - if grouptogether=no, then all of the indiviual files would simply be dragged out to the main folder. 
 
+10. Unzip all of the files within the folder automatically. 
+
+11. Count the number of different suffixes in the folder. 
+
 
 ### Functions to Develop 
 
