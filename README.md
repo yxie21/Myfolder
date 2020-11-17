@@ -1,55 +1,40 @@
 # Folder Project
 
-We usually encounter a lot of unncessary troubles when dealing with folders with a lot of subfolders in our lives, 
-so this project will facilitate this process and provide the users with a lot of functions that could save them time and effort.
+### Objective: 
+We usually encounter a lot of unncessary troubles when dealing with folders with a lot of subfolders in our lives, so this Java project saves users time and effort when dealing with files in folders. 
 
-> Some of the functions to include 
+### Functions: 
 
-1. Drag out all of the files with the same ending (ex. ".txt", ".java") from a folder (including from the subfolders within the folder) and place them in the location the user wants
+1. Drag out all of the files with the same ending (ex. ".txt", ".java") from a folder (including from the subfolders within the folder) and place them under the main folder 
 
-2. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
+2. Generate reports of the original folder and the modified folder for users to check if there is any error in the process of moving files around. 
 
-3. Generalize the [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java) to make it
-    a. able to be executed in folders with more than two layers of subfolders
-    b. compatible on all devices (Mac, Windows, Linux)
+3. Generate pdf reports (including subfolders and individual files). 
 
 4. Add all of the tags of individual files in a folder to the folder itself.
-5.
 
-### Week One: 
-1.  [Dropfolder](https://github.com/yxie21/library/blob/master/DropFolder.java)
+4. Tell users all file types within the folder. 
 
-We start off with a simple scenario,
+5. Combine two folders together into one, or create a new folder that merges the two folders together. 
 
-- ##### Context:
+6. Simplify the path length. Sometimes, a file is under a chain of subfolders (ex. subfolder A-- subfolder B--- subfolder C--- file). Delete the unnecessary subfolders and shorten the pathlength to get the file. 
 
-In the folder "folder," you enter two more levels of subfolders before being able to reach individual files ending with ".txt"
+7. The program can be generalized to any amount of subfolders now (an improvement from before)
 
-- ##### Goal:
+8. Convert all of the jpg files to png files automatically. (similar conversion can happen for other such changes)
 
-Drag out all of the files ending with txt to the big folder. 
+9. Users now have two options
+##### - if grouptogether=yes, then files of the same suffix would be grouped together and placed in newly created folders (using their suffix) under the main folder (ex. all of the jpg files under subfolder jpg)
+##### - if grouptogether=no, then all of the indiviual files would simply be dragged out to the main folder. 
 
-2. [Dropfolder.2]
+10. Unzip all of the files within the folder automatically. 
 
-- ##### Problem:
-
-Right now, the line putting in the *folderpath* and the *document ending (.txt)* are hard codes.
-When other people want to run it, they have to change these two configurations. In order to do so,
-they have to use Eclipse. However, for the average users with zero programming experience, this could be
-a very difficult task (also for users without programming software). 
-
-- ##### Change made:
-
-Therefore, I used *config.txt* to save all of the configurations and used HashMap (keys and values) to read the input configurations.
-In this way, the users simply have to change the configurations in the txt file, which is easy for everyone.
-
-- ##### An additional change:
-
-By getting the location of config.txt in the first few lines of code through the relative path, users no longer have to worry about the exact location of the file. 
+11. Count the number of different suffixes in the folder. 
 
 
-- ##### why use map?
+### Functions to Develop 
 
-###### 1. Retrieving values from the input key is very convenient.
-###### 2. When there are a lot of configurations later on, map can be very time-efficient (changing O(N) to O(1)).
+1. When there are two files with the same name in the folder, rename them with different suffixes to distinguish them. 
+
+
 

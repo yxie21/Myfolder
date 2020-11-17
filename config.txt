@@ -1,2 +1,3 @@
-rootpath=/Users/yuxinxie/Documents/folder
-suffix=.txt
+rootpath=/Users/yuxinxie/Desktop/trail2
+grouptogether=no
+printfiletype=no
