@@ -11,6 +11,8 @@ We usually encounter a lot of unncessary troubles when dealing with folders with
 
 3. Generate pdf reports (including subfolders and individual files). 
 
+4. Add all of the tags of individual files in a folder to the folder itself.
+
 4. Tell users all file types within the folder. 
 
 5. Combine two folders together into one, or create a new folder that merges the two folders together. 
